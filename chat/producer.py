@@ -6,8 +6,6 @@ import pika
 #                                   5672,
 #                                   '/',
 #                                   credentials)
-#connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='localhost'))
 
@@ -20,8 +18,3 @@ def publish(message):
                             body=message,
                             properties=pika.BasicProperties(delivery_mode=2) # make message persistent
                             )
-      #print(" [x] Sent 'Hello World!'")
-     # connection.close()// تسبب مشكلة channel is closed
-
-#stackoverflow.com/questions/27805086/how-to-connect-pika-to-rabbitmq-remote-server-python-pika
-#https://stackoverflow.com/questions/47465657/how-can-i-pass-values-parameters-from-html-to-django-views
